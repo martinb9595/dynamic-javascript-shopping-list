@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item" />
+      <button onclick="clkd()">Add item</button>
+    </div>
+
+    <ul></ul>
+
+    <script>
+      let one = document.querySelector("ul");
+      let two = document.querySelector("input");
+      let three = document.querySelector("button");
+
+      function clkd() {
+        let val = document.getElementById("item").value;
+        const li = document.createElement("li");
+        const span = document.createElement("span");
+        const button2 = document.createElement("button");
+        li.appendChild(span);
+        li.appendChild(button2);
+        span.textContent = val;
+        button2.textContent = "Delete";
+        one.appendChild(li);
+        button2.onclick = console.log("huh");
+      }
+    </script>
+  </body>
+</html>
