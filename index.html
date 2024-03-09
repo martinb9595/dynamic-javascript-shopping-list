@@ -22,7 +22,7 @@
     <div>
       <label for="item">Enter a new item:</label>
       <input type="text" name="item" id="item" />
-      <button onclick="clkd()">Add item</button>
+      <button id="focusButton" onclick="clkd()">Add item</button>
     </div>
 
     <ul></ul>
@@ -31,8 +31,12 @@
       let one = document.querySelector("ul");
       let two = document.querySelector("input");
       let three = document.querySelector("button");
+      document.getElementById("focusButton").addEventListener("click", () => {
+        document.getElementById("item").focus();
+      });
 
       function clkd() {
+        two = "";
         let val = document.getElementById("item").value;
         const li = document.createElement("li");
         const span = document.createElement("span");
@@ -42,7 +46,9 @@
         span.textContent = val;
         button2.textContent = "Delete";
         one.appendChild(li);
-        button2.onclick = console.log("huh");
+        button2.onclick = function () {
+          li.remove(); // Remove the entire list item
+        };
       }
     </script>
   </body>
